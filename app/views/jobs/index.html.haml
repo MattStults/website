@@ -1,0 +1,18 @@
+%h2 All Jobs
+
+%table#jobs
+  %thread
+    %tr
+      %th Job Title
+      %th Start
+      %th End
+      %th More Info
+  %tbody
+    - @jobs.each do |job|
+      %tr
+        %td= job.title
+        %td= job.start
+        %td= job.end
+        %td= link_to "More about #{job.title}", job
+
+= link_to 'Add a new job', new_job_path

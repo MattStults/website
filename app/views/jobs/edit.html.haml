@@ -1,0 +1,10 @@
+%h2 Create New Job
+
+= form_tag job_path(@job), :method => :put do
+  = label :job, :title, 'Title'
+  = text_field :job, :title
+  = label :job, :start, 'Start'
+  = text_field :job, :start
+  = label :job, :end, 'End'
+  = text_field :job, :end
+  = submit_tag 'Save Changes'
