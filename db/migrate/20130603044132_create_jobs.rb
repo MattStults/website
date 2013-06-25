@@ -4,6 +4,7 @@ class CreateJobs < ActiveRecord::Migration
       t.string 'title'
       t.date 'start'
       t.date 'end'
+      t.belongs_to :company
       # auto track changes:
       t.timestamps
     end

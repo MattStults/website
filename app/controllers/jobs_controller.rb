@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   def index
-    @jobs = Job.all
+    @job_groups = Job.group_by_company(Job.all)
   end
   def show
     id = params[:id]

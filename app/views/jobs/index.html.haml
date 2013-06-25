@@ -1,18 +1,16 @@
 %h2 All Jobs
 
-%table#jobs
-  %thread
-    %tr
-      %th Job Title
-      %th Start
-      %th End
-      %th More Info
-  %tbody
-    - @jobs.each do |job|
-      %tr
-        %td= job.title
-        %td= job.start
-        %td= job.end
-        %td= link_to "More about #{job.title}", job
+- @job_groups.each do |group|
+  %p
+    %strong= group[:company].name
+    %br
+    - group[:jobs].each do |job|
+      %job= job.title
+      %dates= "#{job.start.strftime('%b/%Y')} to #{job.end.nil? ? "present":job.end.strftime('%b/%Y')}"
+      %br
+      -job.tasks.each do |task|
+        %task= "- #{task.description}"
+        %br
+      - link_to "More about #{job.title}", job
 
 = link_to 'Add a new job', new_job_path
